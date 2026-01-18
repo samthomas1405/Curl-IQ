@@ -7,6 +7,7 @@ import { dashboardApi } from '@/lib/api';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
+import Image from 'next/image';
 
 export default function DashboardPage() {
   const { isAuthenticated, loading: authLoading, logout } = useAuth();
@@ -51,7 +52,16 @@ export default function DashboardPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between h-16">
             <div className="flex items-center">
-              <h1 className="text-xl font-bold">CurlLabs</h1>
+              <Link href="/dashboard" className="flex items-center space-x-2 hover:opacity-80 transition-opacity">
+                <Image
+                  src="/logo.png"
+                  alt="CurlLabs Logo"
+                  width={60}
+                  height={60}
+                  className="object-contain"
+                  unoptimized
+                />
+              </Link>
             </div>
             <div className="flex items-center gap-4">
               <Link href="/products">
