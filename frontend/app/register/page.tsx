@@ -7,6 +7,7 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import Link from 'next/link';
+import Image from 'next/image';
 
 export default function RegisterPage() {
   const [email, setEmail] = useState('');
@@ -44,9 +45,20 @@ export default function RegisterPage() {
   return (
     <div className="flex min-h-screen items-center justify-center bg-gray-50 px-4">
       <Card className="w-full max-w-md">
-        <CardHeader>
-          <CardTitle className="text-2xl">Create an account</CardTitle>
-          <CardDescription>Start tracking your curly hair journey</CardDescription>
+        <CardHeader className="flex flex-col items-center space-y-4">
+          <Image
+            src="/logo.png"
+            alt="CurlLabs Logo"
+            width={220}
+            height={220}
+            className="object-contain"
+            priority
+            unoptimized
+          />
+          <div className="text-center w-full">
+            <CardTitle className="text-2xl">Create an account</CardTitle>
+            <CardDescription>Start tracking your curly hair journey</CardDescription>
+          </div>
         </CardHeader>
         <CardContent>
           <form onSubmit={handleSubmit} className="space-y-4">
