@@ -6,8 +6,8 @@ import { useRouter } from 'next/navigation';
 import { dashboardApi } from '@/lib/api';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
+import { Navigation } from '@/components/Navigation';
 import Link from 'next/link';
-import Image from 'next/image';
 
 export default function DashboardPage() {
   const { isAuthenticated, loading: authLoading, logout } = useAuth();
@@ -48,38 +48,7 @@ export default function DashboardPage() {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      <nav className="bg-white border-b">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between h-16">
-            <div className="flex items-center">
-              <Link href="/dashboard" className="flex items-center space-x-2 hover:opacity-80 transition-opacity">
-                <Image
-                  src="/logo.png"
-                  alt="CurlLabs Logo"
-                  width={60}
-                  height={60}
-                  className="object-contain"
-                  unoptimized
-                />
-              </Link>
-            </div>
-            <div className="flex items-center gap-4">
-              <Link href="/products">
-                <Button variant="ghost">Products</Button>
-              </Link>
-              <Link href="/routines">
-                <Button variant="ghost">Routines</Button>
-              </Link>
-              <Link href="/logs">
-                <Button variant="ghost">Logs</Button>
-              </Link>
-              <Button variant="ghost" onClick={logout}>
-                Logout
-              </Button>
-            </div>
-          </div>
-        </div>
-      </nav>
+      <Navigation />
 
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <div className="mb-8">
