@@ -37,6 +37,9 @@ export function Navigation() {
             <Link href="/logs">
               <Button variant="ghost">Logs</Button>
             </Link>
+            <Link href="/profile">
+              <Button variant="ghost">Profile</Button>
+            </Link>
             <Button variant="ghost" onClick={logout}>
               Logout
             </Button>

@@ -21,6 +21,7 @@ interface AuthContextType {
   login: (email: string, password: string) => Promise<void>;
   register: (email: string, password: string) => Promise<void>;
   logout: () => void;
+  refreshUser: () => Promise<void>;
   isAuthenticated: boolean;
 }
 
@@ -72,7 +73,12 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       const userData = await userResponse.json();
       setUser(userData);
       
-      router.push('/dashboard');
+      // Check if profile is complete (requires curl_pattern and porosity)
+      if (!userData.curl_pattern || !userData.porosity) {
+        router.push('/onboarding');
+      } else {
+        router.push('/dashboard');
+      }
     } catch (error: any) {
       throw new Error(error.response?.data?.detail || error.message || 'Login failed');
     }
@@ -85,6 +91,15 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       await login(email, password);
     } catch (error: any) {
       throw new Error(error.response?.data?.detail || 'Registration failed');
+    }
+  };
+
+  const refreshUser = async () => {
+    try {
+      const response = await userApi.getMe();
+      setUser(response.data);
+    } catch (error) {
+      console.error('Failed to refresh user data:', error);
     }
   };
 
@@ -103,6 +118,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
         login,
         register,
         logout,
+        refreshUser,
         isAuthenticated: !!user,
       }}
     >
