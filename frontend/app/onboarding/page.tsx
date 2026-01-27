@@ -36,7 +36,7 @@ export default function OnboardingPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-[#E6E6FA]">
       <OnboardingWizard />
     </div>
   );

@@ -155,7 +155,7 @@ export default function ProfilePage() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-[#E6E6FA]">
       <Navigation />
 
       <main className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
@@ -178,7 +178,7 @@ export default function ProfilePage() {
                   type="email"
                   value={user?.email || ''}
                   disabled
-                  className="mt-1 bg-gray-50"
+                  className="mt-1 bg-white"
                 />
                 <p className="mt-1 text-sm text-gray-500">
                   Email cannot be changed
