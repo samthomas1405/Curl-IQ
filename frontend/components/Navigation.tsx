@@ -9,7 +9,7 @@ export function Navigation() {
   const { logout } = useAuth();
 
   return (
-    <nav className="bg-white border-b">
+    <nav className="bg-[#FFF9F5] border-b border-[#D4A574]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-16">
           <div className="flex items-center">
@@ -26,21 +26,21 @@ export function Navigation() {
           </div>
           <div className="flex items-center gap-4">
             <Link href="/dashboard">
-              <Button variant="ghost">Dashboard</Button>
+              <Button variant="ghost" className="text-[#6B6B6B] hover:text-[#1A1A1A]">Dashboard</Button>
             </Link>
             <Link href="/products">
-              <Button variant="ghost">Products</Button>
+              <Button variant="ghost" className="text-[#6B6B6B] hover:text-[#1A1A1A]">Products</Button>
             </Link>
             <Link href="/routines">
-              <Button variant="ghost">Routines</Button>
+              <Button variant="ghost" className="text-[#6B6B6B] hover:text-[#1A1A1A]">Routines</Button>
             </Link>
             <Link href="/logs">
-              <Button variant="ghost">Logs</Button>
+              <Button variant="ghost" className="text-[#6B6B6B] hover:text-[#1A1A1A]">Logs</Button>
             </Link>
             <Link href="/profile">
-              <Button variant="ghost">Profile</Button>
+              <Button variant="ghost" className="text-[#6B6B6B] hover:text-[#1A1A1A]">Profile</Button>
             </Link>
-            <Button variant="ghost" onClick={logout}>
+            <Button variant="ghost" onClick={logout} className="text-[#6B6B6B] hover:text-[#1A1A1A]">
               Logout
             </Button>
           </div>

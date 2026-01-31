@@ -22,10 +22,10 @@ export default function OnboardingPage() {
 
   if (authLoading) {
     return (
-      <div className="flex min-h-screen items-center justify-center">
+      <div className="flex min-h-screen items-center justify-center bg-[#FAF5F0]">
         <div className="text-center">
-          <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-gray-900 mx-auto"></div>
-          <p className="mt-4 text-gray-600">Loading...</p>
+          <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-[#1A1A1A] mx-auto"></div>
+          <p className="mt-4 text-[#6B6B6B]">Loading...</p>
         </div>
       </div>
     );
@@ -36,7 +36,7 @@ export default function OnboardingPage() {
   }
 
   return (
-    <div className="min-h-screen bg-[#E6E6FA]">
+    <div className="min-h-screen bg-[#FAF5F0]">
       <OnboardingWizard />
     </div>
   );

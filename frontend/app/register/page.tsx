@@ -43,8 +43,8 @@ export default function RegisterPage() {
   };
 
   return (
-    <div className="flex min-h-screen items-center justify-center bg-[#E6E6FA] px-4">
-      <Card className="w-full max-w-md">
+    <div className="flex min-h-screen items-center justify-center bg-[#FAF5F0] px-4">
+      <Card className="w-full max-w-md bg-[#FFF9F5] border-[#D4A574]">
         <CardHeader className="flex flex-col items-center space-y-4">
           <Image
             src="/logo.png"
@@ -56,19 +56,19 @@ export default function RegisterPage() {
             unoptimized
           />
           <div className="text-center w-full">
-            <CardTitle className="text-2xl">Create an account</CardTitle>
-            <CardDescription>Start tracking your curly hair journey</CardDescription>
+            <CardTitle className="text-2xl text-[#1A1A1A]">Create an account</CardTitle>
+            <CardDescription className="text-[#6B6B6B]">Start tracking your curly hair journey</CardDescription>
           </div>
         </CardHeader>
         <CardContent>
           <form onSubmit={handleSubmit} className="space-y-4">
             {error && (
-              <div className="rounded-md bg-red-50 p-3 text-sm text-red-800">
+              <div className="rounded-md bg-[#FFF9F5] border border-[#C07B5A] p-3 text-sm text-[#C07B5A]">
                 {error}
               </div>
             )}
             <div className="space-y-2">
-              <Label htmlFor="email">Email</Label>
+              <Label htmlFor="email" className="text-[#6B6B6B]">Email</Label>
               <Input
                 id="email"
                 type="email"
@@ -76,10 +76,11 @@ export default function RegisterPage() {
                 onChange={(e) => setEmail(e.target.value)}
                 required
                 placeholder="you@example.com"
+                className="border-[#D4A574]"
               />
             </div>
             <div className="space-y-2">
-              <Label htmlFor="password">Password</Label>
+              <Label htmlFor="password" className="text-[#6B6B6B]">Password</Label>
               <Input
                 id="password"
                 type="password"
@@ -87,10 +88,11 @@ export default function RegisterPage() {
                 onChange={(e) => setPassword(e.target.value)}
                 required
                 minLength={8}
+                className="border-[#D4A574]"
               />
             </div>
             <div className="space-y-2">
-              <Label htmlFor="confirmPassword">Confirm Password</Label>
+              <Label htmlFor="confirmPassword" className="text-[#6B6B6B]">Confirm Password</Label>
               <Input
                 id="confirmPassword"
                 type="password"
@@ -98,15 +100,16 @@ export default function RegisterPage() {
                 onChange={(e) => setConfirmPassword(e.target.value)}
                 required
                 minLength={8}
+                className="border-[#D4A574]"
               />
             </div>
-            <Button type="submit" className="w-full" disabled={loading}>
+            <Button type="submit" className="w-full bg-[#C07B5A] hover:bg-[#B87C5C] text-[#FFF9F5]" disabled={loading}>
               {loading ? 'Creating account...' : 'Create account'}
             </Button>
           </form>
           <div className="mt-4 text-center text-sm">
-            <span className="text-gray-600">Already have an account? </span>
-            <Link href="/login" className="text-blue-600 hover:underline">
+            <span className="text-[#6B6B6B]">Already have an account? </span>
+            <Link href="/login" className="text-[#B87C5C] hover:underline">
               Sign in
             </Link>
           </div>

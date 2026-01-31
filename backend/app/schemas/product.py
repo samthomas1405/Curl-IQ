@@ -21,6 +21,7 @@ class ProductUpdate(BaseModel):
     type: Optional[str] = None
     ingredients: Optional[List[str]] = None
     notes: Optional[str] = None
+    is_starred: Optional[bool] = None
 
 
 class Product(ProductBase):
@@ -28,6 +29,7 @@ class Product(ProductBase):
     user_id: Optional[int] = None
     usage_count: int
     success_rate: float
+    is_starred: bool = False
     created_at: datetime
     updated_at: Optional[datetime] = None
 
