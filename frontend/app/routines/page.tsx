@@ -288,7 +288,7 @@ export default function RoutinesPage() {
 
   if (authLoading || loading) {
     return (
-      <div className="min-h-screen bg-[#E6E6FA]">
+      <div className="min-h-screen bg-[#FAF5F0]">
         <Navigation />
         <div className="flex min-h-[calc(100vh-4rem)] items-center justify-center">
           <div>Loading...</div>
@@ -298,14 +298,14 @@ export default function RoutinesPage() {
   }
 
   return (
-    <div className="min-h-screen bg-[#E6E6FA]">
+    <div className="min-h-screen bg-[#FAF5F0]">
       <Navigation />
 
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <div className="mb-8 flex justify-between items-center">
           <div>
-            <h2 className="text-3xl font-bold">Routines</h2>
-            <p className="text-gray-600 mt-2">Create and manage your hair care routine templates</p>
+            <h2 className="font-bold">Routines</h2>
+            <p className="text-[#6B6B6B] mt-2">Create and manage your hair care routine templates</p>
           </div>
           <Dialog open={dialogOpen} onOpenChange={(open) => {
             setDialogOpen(open);
@@ -343,7 +343,7 @@ export default function RoutinesPage() {
                   <div className="grid gap-2">
                     <Label>Steps <span className="text-red-500">*</span></Label>
                     {formData.steps.length === 0 ? (
-                      <p className="text-sm text-gray-500">No steps added yet. Click "Add Step" to get started.</p>
+                      <p className="text-sm text-[#6B6B6B]">No steps added yet. Click "Add Step" to get started.</p>
                     ) : (
                       <div className="space-y-3">
                         {formData.steps.map((step, index) => (
@@ -574,7 +574,7 @@ export default function RoutinesPage() {
                     {routine.steps && routine.steps.length > 0 ? (
                       <div className="text-sm">
                         <div className="font-medium mb-1">Steps:</div>
-                        <ol className="list-decimal list-inside space-y-1 text-gray-600">
+                        <ol className="list-decimal list-inside space-y-1 text-[#6B6B6B]">
                           {routine.steps.map((step: any, idx: number) => (
                             <li key={idx}>
                               {step.step_type}
@@ -584,10 +584,10 @@ export default function RoutinesPage() {
                         </ol>
                       </div>
                     ) : (
-                      <p className="text-sm text-gray-500">No steps defined</p>
+                      <p className="text-sm text-[#6B6B6B]">No steps defined</p>
                     )}
                     {routine.drying_method && (
-                      <div className="text-sm text-gray-600">
+                      <div className="text-sm text-[#6B6B6B]">
                         Drying: {routine.drying_method.replace('-', ' ')}
                       </div>
                     )}

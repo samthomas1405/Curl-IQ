@@ -29,8 +29,11 @@ async def get_products(
     current_user: User = Depends(get_current_user),
     db: Session = Depends(get_db)
 ):
-    """Get all products for current user"""
-    products = db.query(Product).filter(Product.user_id == current_user.id).all()
+    """Get all products for current user (including unassigned / community products with user_id NULL)"""
+    from sqlalchemy import or_
+    products = db.query(Product).filter(
+        or_(Product.user_id == current_user.id, Product.user_id.is_(None))
+    ).all()
     return products
 
 

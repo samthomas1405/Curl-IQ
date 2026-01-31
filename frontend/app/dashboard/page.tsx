@@ -47,13 +47,13 @@ export default function DashboardPage() {
   }
 
   return (
-    <div className="min-h-screen bg-[#E6E6FA]">
+    <div className="min-h-screen bg-[#FAF5F0]">
       <Navigation />
 
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <div className="mb-8">
-          <h2 className="text-3xl font-bold">Dashboard</h2>
-          <p className="text-gray-600 mt-2">Your curly hair routine insights</p>
+          <h2 className="font-bold text-[#1A1A1A]">Dashboard</h2>
+          <p className="text-[#6B6B6B] mt-2">Your curly hair routine insights</p>
         </div>
 
         {stats ? (
@@ -63,7 +63,7 @@ export default function DashboardPage() {
                 <CardTitle>Total Logs</CardTitle>
               </CardHeader>
               <CardContent>
-                <div className="text-3xl font-bold">{stats.total_logs}</div>
+                <div className="text-3xl font-bold text-[#1A1A1A]">{stats.total_logs}</div>
               </CardContent>
             </Card>
 
@@ -72,7 +72,7 @@ export default function DashboardPage() {
                 <CardTitle>Total Outcomes</CardTitle>
               </CardHeader>
               <CardContent>
-                <div className="text-3xl font-bold">{stats.total_outcomes}</div>
+                <div className="text-3xl font-bold text-[#1A1A1A]">{stats.total_outcomes}</div>
               </CardContent>
             </Card>
 
@@ -81,7 +81,7 @@ export default function DashboardPage() {
                 <CardTitle>Average Overall Score</CardTitle>
               </CardHeader>
               <CardContent>
-                <div className="text-3xl font-bold">
+                <div className="text-3xl font-bold text-[#1A1A1A]">
                   {stats.average_scores?.overall?.toFixed(1) || 'N/A'}
                 </div>
               </CardContent>
@@ -92,11 +92,11 @@ export default function DashboardPage() {
                 <CardTitle>Best Routine</CardTitle>
               </CardHeader>
               <CardContent>
-                <div className="text-lg font-semibold">
+                <div className="text-lg font-semibold text-[#1A1A1A]">
                   {stats.best_routine?.name || 'N/A'}
                 </div>
                 {stats.best_routine && (
-                  <div className="text-sm text-gray-600">
+                  <div className="text-sm text-[#8B6B4F]">
                     Score: {stats.best_routine.average_score.toFixed(1)}
                   </div>
                 )}

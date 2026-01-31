@@ -148,20 +148,20 @@ export default function ProfilePage() {
       <div className="flex min-h-screen items-center justify-center">
         <div className="text-center">
           <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-gray-900 mx-auto"></div>
-          <p className="mt-4 text-gray-600">Loading...</p>
+          <p className="mt-4 text-[#6B6B6B]">Loading...</p>
         </div>
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen bg-[#E6E6FA]">
+    <div className="min-h-screen bg-[#FAF5F0]">
       <Navigation />
 
       <main className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <div className="mb-8">
-          <h2 className="text-3xl font-bold">Profile</h2>
-          <p className="text-gray-600 mt-2">Manage your account and hair profile</p>
+          <h2 className="font-bold">Profile</h2>
+          <p className="text-[#6B6B6B] mt-2">Manage your account and hair profile</p>
         </div>
 
         {/* Account Information */}
@@ -180,7 +180,7 @@ export default function ProfilePage() {
                   disabled
                   className="mt-1 bg-white"
                 />
-                <p className="mt-1 text-sm text-gray-500">
+                <p className="mt-1 text-sm text-[#6B6B6B]">
                   Email cannot be changed
                 </p>
               </div>
@@ -380,7 +380,7 @@ export default function ProfilePage() {
                       placeholder="e.g., New York, NY, USA"
                     />
                   </div>
-                  <p className="mt-1 text-sm text-gray-500">
+                  <p className="mt-1 text-sm text-[#6B6B6B]">
                     Used for weather tracking. Start typing to see suggestions.
                   </p>
                 </div>
@@ -398,7 +398,7 @@ export default function ProfilePage() {
               <div className="space-y-4">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div>
-                    <Label className="text-gray-500">Curl Pattern</Label>
+                    <Label className="text-[#6B6B6B]">Curl Pattern</Label>
                     <p className="mt-1 font-medium">
                       {user?.curl_pattern
                         ? CURL_PATTERNS.find((p) => p.value === user.curl_pattern)?.label ||
@@ -407,7 +407,7 @@ export default function ProfilePage() {
                     </p>
                   </div>
                   <div>
-                    <Label className="text-gray-500">Porosity</Label>
+                    <Label className="text-[#6B6B6B]">Porosity</Label>
                     <p className="mt-1 font-medium">
                       {user?.porosity
                         ? POROSITY_OPTIONS.find((p) => p.value === user.porosity)?.label ||
@@ -416,7 +416,7 @@ export default function ProfilePage() {
                     </p>
                   </div>
                   <div>
-                    <Label className="text-gray-500">Density</Label>
+                    <Label className="text-[#6B6B6B]">Density</Label>
                     <p className="mt-1 font-medium">
                       {user?.density
                         ? DENSITY_OPTIONS.find((d) => d.value === user.density)?.label ||
@@ -425,7 +425,7 @@ export default function ProfilePage() {
                     </p>
                   </div>
                   <div>
-                    <Label className="text-gray-500">Thickness</Label>
+                    <Label className="text-[#6B6B6B]">Thickness</Label>
                     <p className="mt-1 font-medium">
                       {user?.thickness
                         ? THICKNESS_OPTIONS.find((t) => t.value === user.thickness)?.label ||
@@ -434,7 +434,7 @@ export default function ProfilePage() {
                     </p>
                   </div>
                   <div>
-                    <Label className="text-gray-500">Scalp Type</Label>
+                    <Label className="text-[#6B6B6B]">Scalp Type</Label>
                     <p className="mt-1 font-medium">
                       {user?.scalp_type
                         ? SCALP_OPTIONS.find((s) => s.value === user.scalp_type)?.label ||
@@ -443,7 +443,7 @@ export default function ProfilePage() {
                     </p>
                   </div>
                   <div>
-                    <Label className="text-gray-500">Location</Label>
+                    <Label className="text-[#6B6B6B]">Location</Label>
                     <p className="mt-1 font-medium">
                       {user?.location || 'Not set'}
                     </p>
