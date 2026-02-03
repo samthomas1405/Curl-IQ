@@ -19,6 +19,11 @@ class Settings(BaseSettings):
     WEATHER_API_KEY: str = ""
     WEATHER_API_URL: str = "https://api.openweathermap.org/data/2.5"
     
+    # LLM API Keys (optional)
+    GROQ_API_KEY: str = ""
+    OPENAI_API_KEY: str = ""
+    ANTHROPIC_API_KEY: str = ""
+    
     # CORS
     CORS_ORIGINS: List[str] = ["http://localhost:3000", "http://localhost:3001"]
     
