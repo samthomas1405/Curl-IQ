@@ -1,5 +1,5 @@
 from fastapi import APIRouter
-from app.api.v1 import auth, users, products, routines, routine_logs, outcomes, weather, dashboard
+from app.api.v1 import auth, users, products, routines, routine_logs, outcomes, weather, dashboard, ai
 
 api_router = APIRouter()
 
@@ -11,3 +11,4 @@ api_router.include_router(routine_logs.router, prefix="/routine-logs", tags=["ro
 api_router.include_router(outcomes.router, prefix="/outcomes", tags=["outcomes"])
 api_router.include_router(weather.router, prefix="/weather", tags=["weather"])
 api_router.include_router(dashboard.router, prefix="/dashboard", tags=["dashboard"])
+api_router.include_router(ai.router, prefix="/ai", tags=["ai"])

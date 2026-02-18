@@ -115,7 +115,13 @@ export default function ProductsPage() {
         notes: formData.notes.trim() || undefined,
       };
 
-      await productsApi.create(productData);
+      const response = await productsApi.create(productData);
+      
+      // Check for duplicate notification
+      console.log('Product creation response:', response.data);
+      if (response.data?._duplicate_notification) {
+        alert(response.data._duplicate_notification);
+      }
       
       // Reset form and close dialog
       setFormData({
@@ -131,11 +137,23 @@ export default function ProductsPage() {
       await fetchProducts();
     } catch (err: any) {
       console.error('Failed to create product:', err);
-      setError(
-        err.response?.data?.detail || 
-        err.message || 
-        'Failed to create product. Please try again.'
-      );
+      
+      // Handle duplicate conflict (409)
+      if (err.response?.status === 409) {
+        const detail = err.response?.data?.detail;
+        if (detail?.message) {
+          alert(detail.message);
+        } else {
+          alert('A similar product already exists. Please check your products list.');
+        }
+        setError(detail?.message || 'A similar product already exists.');
+      } else {
+        setError(
+          err.response?.data?.detail || 
+          err.message || 
+          'Failed to create product. Please try again.'
+        );
+      }
     } finally {
       setSubmitting(false);
     }

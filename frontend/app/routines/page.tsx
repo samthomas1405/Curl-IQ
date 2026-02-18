@@ -265,6 +265,12 @@ export default function RoutinesPage() {
       };
 
       const response = await productsApi.create(productData);
+      
+      // Check for duplicate notification
+      if (response.data?._duplicate_notification) {
+        alert(response.data._duplicate_notification);
+      }
+      
       await fetchData(); // Refresh products list
       
       // Reset form and close dialog
@@ -281,7 +287,19 @@ export default function RoutinesPage() {
       return response.data.id;
     } catch (err: any) {
       console.error('Failed to create product:', err);
-      setError(err.response?.data?.detail || err.message || 'Failed to create product');
+      
+      // Handle duplicate conflict (409)
+      if (err.response?.status === 409) {
+        const detail = err.response?.data?.detail;
+        if (detail?.message) {
+          alert(detail.message);
+        } else {
+          alert('A similar product already exists. Please check your products list.');
+        }
+        setError(detail?.message || 'A similar product already exists.');
+      } else {
+        setError(err.response?.data?.detail || err.message || 'Failed to create product');
+      }
       throw err;
     }
   };

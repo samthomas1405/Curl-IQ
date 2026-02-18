@@ -34,6 +34,9 @@ export function Navigation() {
             <Link href="/routines">
               <Button variant="ghost" className="text-[#6B6B6B] hover:text-[#1A1A1A]">Routines</Button>
             </Link>
+            <Link href="/ai">
+              <Button variant="ghost" className="text-[#6B6B6B] hover:text-[#1A1A1A]">AI Features</Button>
+            </Link>
             <Link href="/logs">
               <Button variant="ghost" className="text-[#6B6B6B] hover:text-[#1A1A1A]">Logs</Button>
             </Link>

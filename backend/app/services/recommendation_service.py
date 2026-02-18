@@ -76,25 +76,39 @@ class RecommendationService:
         """
         user_profile = self._encode_hair_profile(user)
         
-        # Get all products with outcomes
+        # Get all products (relaxed criteria to include products with low/no usage)
         products = db.query(Product).filter(
-            Product.usage_count >= 2  # At least 2 uses
+            Product.usage_count >= 0  # Include all products, even with no usage yet
         ).all()
         
         if exclude_owned:
             products = [p for p in products if p.user_id != user.id]
+        
+        # If no products after filtering, include user's own products
+        if not products:
+            products = db.query(Product).filter(
+                Product.user_id == user.id
+            ).all()
         
         # Score products
         scored_products = []
         for product in products:
             score = 0.0
             
-            # Base score: success rate
-            score += product.success_rate * 0.4
+            # Base score: success rate (if available)
+            if product.success_rate > 0:
+                score += product.success_rate * 0.4
+            else:
+                # Give base score for products without usage data
+                score += 0.2
             
             # Usage count bonus (more data = more reliable)
-            usage_bonus = min(product.usage_count / 10.0, 1.0) * 0.2
-            score += usage_bonus
+            if product.usage_count > 0:
+                usage_bonus = min(product.usage_count / 10.0, 1.0) * 0.2
+                score += usage_bonus
+            else:
+                # Give small bonus for new products
+                score += 0.1
             
             # Find users who used this product successfully
             # (In a real system, we'd query this from the database)

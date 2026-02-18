@@ -130,3 +130,13 @@ export const dashboardApi = {
   getTrends: (days: number = 30) => api.get('/dashboard/trends', { params: { days } }),
   getInsights: () => api.get('/dashboard/insights'),
 };
+
+// AI API
+export const aiApi = {
+  predictOutcome: (data: any) => api.post('/ai/predict-outcome', data),
+  getProductRecommendations: (limit: number = 5) => api.get('/ai/recommendations/products', { params: { limit } }),
+  getRoutineRecommendations: (limit: number = 3) => api.get('/ai/recommendations/routines', { params: { limit } }),
+  getAIInsights: () => api.get('/ai/insights/ai'),
+  detectPatterns: () => api.get('/ai/insights/patterns'),
+  trainModel: () => api.post('/ai/train-model'),
+};
